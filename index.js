@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer-core");
 const chromium = require("@sparticuz/chromium-min");
 
-exports.handler = async (event, context) => {
+async function func() {
     // Phase 1
   let startTime = performance.now();
 
@@ -73,3 +73,5 @@ exports.handler = async (event, context) => {
     }
   }
 };
+
+func()
