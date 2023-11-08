@@ -1,5 +1,7 @@
 const puppeteer = require("puppeteer-core");
 const chromium = require("@sparticuz/chromium-min");
+var exec = require('child_process').exec;
+
 
 async function func() {
     // Phase 1
@@ -12,7 +14,11 @@ async function func() {
   let endTime = performance.now();
   let executionTime = endTime - startTime;
   console.log(`Phase 1 [Init]: ${executionTime} ms`)
-  
+  exec('ls', function (error, stdOut, stdErr) {
+    console.log(error)
+    console.log(stdOut)
+    console.log(stdErr)
+});
   try {
     // Phase 2
     startTime = performance.now();
