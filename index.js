@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer-core");
-const chromium = require("@sparticuz/chromium");
+const chromium = require("@sparticuz/chromium-min");
 
 exports.handler = async (event, context) => {
     // Phase 1
@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
   
   let endTime = performance.now();
   let executionTime = endTime - startTime;
-  console.log(`Phase 1: ${executionTime} ms`)
+  console.log(`Phase 1 [Init]: ${executionTime} ms`)
   
   try {
     // Phase 2
@@ -26,7 +26,7 @@ exports.handler = async (event, context) => {
     
     endTime = performance.now();
     executionTime = endTime - startTime;
-    console.log(`Phase 2: ${executionTime} ms`)
+    console.log(`Phase 2 [Browser Invoke]: ${executionTime} ms`)
     
     // Phase 3
     startTime = performance.now();
@@ -35,7 +35,7 @@ exports.handler = async (event, context) => {
     
     endTime = performance.now();
     executionTime = endTime - startTime;
-    console.log(`Phase 3: ${executionTime} ms`)
+    console.log(`Phase 3 [Create new page]: ${executionTime} ms`)
 
     // Phase 4
     startTime = performance.now();
@@ -44,7 +44,7 @@ exports.handler = async (event, context) => {
     
     endTime = performance.now();
     executionTime = endTime - startTime;
-    console.log(`Phase 4: ${executionTime} ms`)
+    console.log(`Phase 4 [URL fetch]: ${executionTime} ms`)
 
     // Phase 5
     startTime = performance.now();
@@ -53,7 +53,7 @@ exports.handler = async (event, context) => {
     
     endTime = performance.now();
     executionTime = endTime - startTime;
-    console.log(`Phase 5: ${executionTime} ms`)
+    console.log(`Phase 5 [Screen Capture]: ${executionTime} ms`)
 
     return 'Screenshot captured';
 
@@ -69,7 +69,7 @@ exports.handler = async (event, context) => {
       
       endTime = performance.now();
       executionTime = endTime - startTime;
-      console.log(`Phase 6: ${executionTime} ms`)
+      console.log(`Phase 6 [Browser Dealloc]: ${executionTime} ms`)
     }
   }
 };
