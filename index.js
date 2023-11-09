@@ -49,7 +49,8 @@ async function func() {
 
     startTime = performance.now();
     // Phase 4
-    await page.goto("file:///home/goofynugtz/Work/HomeDrop/pupp-poc/templates/gst-invoice.html");
+    await page.goto("file://"+ __dirname +"/templates/gst-invoice.html");
+
     endTime = performance.now();
     executionTime = endTime - startTime;
     console.log(`Phase 4 [Access HTML]: ${executionTime} ms`)
