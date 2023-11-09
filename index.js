@@ -1,7 +1,14 @@
 const puppeteer = require("puppeteer-core");
-const chromium = require("@sparticuz/chromium-min");
+const chromium = require("@sparticuz/chromium");
 var exec = require('child_process').exec;
 
+var execPath;
+
+async function getPath(){
+  if (execPath) return execPath;
+  execPath = await chromium.executablePath()
+  return execPath;
+}
 
 async function func() {
     // Phase 1
@@ -14,18 +21,18 @@ async function func() {
   let endTime = performance.now();
   let executionTime = endTime - startTime;
   console.log(`Phase 1 [Init]: ${executionTime} ms`)
-  exec('ls', function (error, stdOut, stdErr) {
+/*   exec('ls', function (error, stdOut, stdErr) {
     console.log(error)
     console.log(stdOut)
     console.log(stdErr)
-});
+}); */
   try {
     // Phase 2
     startTime = performance.now();
 
     browser = await puppeteer.launch({
       args: chromium.args,
-      executablePath: await chromium.executablePath(),
+      executablePath: await getPath(),
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
