@@ -1,0 +1,1135 @@
+
+<!-- saved from url=(0092)https://s3.ap-south-1.amazonaws.com/content.pos.homedrop.in/print-templates/gst-invoice.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script src="chrome-extension://fdjamakpfbbddfjaooikfcpapjohcfmg/content/pageScripts/dashlane-tiresias-page-script.js" id="dashlane_tiresias"></script><script src="chrome-extension://fdjamakpfbbddfjaooikfcpapjohcfmg/content/pageScripts/dashlane-webauthn-page-script.js" id="dashlane_webauthn" name="forward_webauthn_ready"></script><style>
+        body {
+            height: 297mm;
+            width: 210mm;
+            margin: auto;
+            margin-top: 12px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        }
+
+        .top-flex {
+            display: flex;
+            justify-content: space-between;
+            border: 1.5px solid #000;
+        }
+
+        .flex-box {
+            width: 50%;
+            box-sizing: border-box;
+            padding: 24px 4px;
+        }
+
+        .border-right {
+            border-right: 1.5px solid #000;
+        }
+
+        .border-bottom {
+            border-bottom: 1.5px solid #000;
+        }
+
+        .border-top {
+            border-top: 1.5px solid #000;
+        }
+
+        .no-border-bottom {
+            border-bottom: none;
+        }
+
+        .text-black {
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .bold {
+            font-weight: 700 !important;
+        }
+
+        .semi-bold {
+            font-weight: 600 !important;
+        }
+
+        .text-large {
+            font-size: 16px;
+        }
+
+        .text-semi-large {
+            font-size: 14px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .text-capital {
+            text-transform: capitalize;
+        }
+
+        .flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .center-box {
+            flex: 1;
+            text-align: center;
+        }
+
+        .column-flex {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            box-sizing: border-box;
+            padding: 6px;
+        }
+
+        .flex {
+            display: flex;
+            gap: 12px;
+        }
+
+        .table {
+            width: 99.6%;
+            border: 1.5px solid #000;
+        }
+
+        .trow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .th {
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            box-sizing: border-box;
+            padding: 6px;
+        }
+
+        .td {
+            font-weight: 500;
+            font-size: 13px;
+            box-sizing: border-box;
+            padding: 6px;
+            height: 40px;
+        }
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .flex-2 {
+            flex: 2;
+        }
+
+        .flex-3 {
+            flex: 3;
+        }
+
+        .grey-background {
+            background-color: #dff0c9;
+        }
+
+        .have-margin {
+            margin: 12px 0;
+        }
+
+        .td-flex {
+            flex: 1;
+            width: 100%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sub-td {
+            width: 50%;
+        }
+
+        .no-padding {
+            padding: 0 !important;
+        }
+
+        .gst-th {
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            box-sizing: border-box;
+            /* padding: 6px; */
+            height: 38px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .gst-td {
+            flex: 1;
+            width: 100%;
+            font-weight: 500;
+            font-size: 13px;
+            box-sizing: border-box;
+            padding: 4px;
+            height: 30px;
+            text-align: right;
+        }
+
+        .gst-td > div {
+            width: 50%;
+            height: 30px;
+            box-sizing: border-box;
+            padding: 4px;
+        }
+
+        .center-div {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .b {
+            border: 1px solid red;
+        }
+        .ellipsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+    </style>
+
+    </head><body>
+        <div id="target"></div>
+        <div class="top-flex no-border-bottom">
+            <div class="flex-box border-right">
+                <div class="bold text-large" id="store-name">-</div>
+                <div class="text-black semi-bold">Mobile: <span id="store-phone"></span></div>
+            </div>
+
+            <div class="flex-box flex-container">
+                <div class="center-box">
+                    <div class="text-black bold">Invoice No.</div>
+                    <div class="text-black semi-bold" id="invoice-no">-</div>
+                </div>
+                <div class="center-box">
+                    <div class="text-black bold">Invoice Date</div>
+                    <div class="text-black semi-bold" id="invoice-date">-</div>
+                </div>
+                <!-- <div class="center-box">
+                    <div class="text-black bold">Due Date</div>
+                    <div class="text-black semi-bold" id="due-date">16/10/23</div>
+                </div> -->
+            </div>
+        </div>
+        <div class="top-flex no-border-bottom">
+            <div class="column-flex border-right">
+                <div class="text-black semi-bold text-semi-large">BILL TO</div>
+                <div class="text-black bold text-semi-large" id="bill-customer-name">-</div>
+                <div class="text-black">Adress: <span id="bill-address">-</span></div>
+                <div class="flex">
+                    <div class="text-black">GSTIN: <span id="customer-gst">-</span></div>
+                    <div class="text-black">State: <span id="customer-state">-</span></div>
+                </div>
+                <div class="text-black">Mobile: <span id="customer-phone">-</span></div>
+            </div>
+            <div class="column-flex">
+                <div class="text-black semi-bold text-semi-large">SHIP TO</div>
+                <div class="text-black bold text-semi-large" id="ship-customer-name">-</div>
+                <div class="text-black">Adress: <span id="ship-address">-</span></div>
+            </div>
+        </div>
+        <div class="table">
+            <div class="trow grey-background border-bottom">
+                <div class="th border-right flex-1">S.NO.</div>
+                <div class="th border-right flex-3">ITEMS</div>
+                <div class="th border-right flex-2">HSN</div>
+                <div class="th border-right flex-2">BATCH NO.</div>
+                <div class="th border-right flex-2">EXP. DATE</div>
+                <div class="th border-right flex-2">MFG DATE</div>
+                <div class="th border-right flex-1">QTY</div>
+                <div class="th border-right flex-1">RATE</div>
+                <div class="th flex-2">AMOUNT</div>
+            </div>
+            <div id="product-table-body"></div>
+        </div>
+
+        <div class="table have-margin">
+            <div class="trow grey-background border-bottom">
+                <div class="gst-th border-right">HSN/SAC</div>
+                <div class="gst-th border-right">Taxable Value</div>
+                <div class="gst-th border-right">
+                    <div class="border-bottom">CGST</div>
+                    <div class="td-flex">
+                        <div class="sub-td border-right">Rate</div>
+                        <div class="sub-td">Amount</div>
+                    </div>
+                </div>
+                <div class="gst-th border-right">
+                    <div class="border-bottom">SGST</div>
+                    <div class="td-flex">
+                        <div class="sub-td border-right">Rate</div>
+                        <div class="sub-td">Amount</div>
+                    </div>
+                </div>
+                <div class="gst-th border-right">
+                    <div class="border-bottom">CESS</div>
+                    <div class="td-flex">
+                        <div class="sub-td border-right">Rate</div>
+                        <div class="sub-td">Amount</div>
+                    </div>
+                </div>
+                <div class="gst-th">Tax Total Amount</div>
+            </div>
+            <div id="gst-table-body"></div>
+        </div>
+
+        <div class="top-flex no-border-bottom">
+            <div class="column-flex">
+                <div class="text-black bold text-semi-large">Total Amount (in words)</div>
+                <div class="text-black semi-bold text-semi-large" id="amount-words">-</div>
+            </div>
+        </div>
+        <div class="top-flex border-bottom">
+            <div class="column-flex border-right">
+                <div class="text-black bold text-semi-large">Notes</div>
+                <div class="text-black semi-bold text-semi-large" id="notes">-</div>
+            </div>
+            <div class="column-flex no-border-right">
+                <div class="text-black bold text-semi-large">Terms &amp; Conditions</div>
+
+                <div class="text-black" id="terms">-</div>
+            </div>
+            <!-- <div class="column-flex">
+                <div class="text-black bold text-semi-large">Bank Details</div>
+                <table>
+                    <tr class="text-black">
+                        <td>Name:</td>
+                        <td>Karan</td>
+                    </tr>
+                    <tr class="text-black">
+                        <td>IFSC Code:</td>
+                        <td>SBIN08909</td>
+                    </tr>
+                    <tr class="text-black">
+                        <td>Account No:</td>
+                        <td>675578896565676</td>
+                    </tr>
+                    <tr class="text-black">
+                        <td>Bank:</td>
+                        <td>State Bank of India</td>
+                    </tr>
+                </table>
+            </div> -->
+        </div>
+
+        <!-- <div class="top-flex border-bottom">
+            <div class="column-flex border-right">
+                <div class="text-black bold text-semi-large">Terms & Conditions</div>
+
+                <div class="text-black">1. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ipsum doloremque,</div>
+                <div class="text-black">2. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ipsum doloremque,</div>
+                <div class="text-black">3. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ipsum doloremque,</div>
+                <div class="text-black">4. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ipsum doloremque,</div>
+            </div>
+            <div class="column-flex center-div">
+                <div class="text-black">Partha</div>
+                <div class="text-black">Authorised Signatory For Partha Store</div>
+            </div>
+        </div> -->
+    
+    <script type="text/JavaScript" src="./gst-invoice_files/moment.js"></script>
+    <script>
+
+        function loadData(store, sale) {
+            appendStoreData(store);
+            appendInvoiceData(sale);
+            appendCustomerData(sale);
+            appendBottomData(sale);
+            appendProductTableData(sale.products, sale);
+            appendGstTableData(sale.products);
+        }
+
+        function formatTime(time) {
+            return moment(time).format("DD/MM/YYYY");
+        }
+
+        function convertNumWords(number) {
+            /* eslint-disable eqeqeq */
+
+            const a = [
+                "",
+                "One ",
+                "Two ",
+                "Three ",
+                "Four ",
+                "Five ",
+                "Six ",
+                "Seven ",
+                "Eight ",
+                "Nine ",
+                "Ten ",
+                "Eleven ",
+                "Twelve ",
+                "Thirteen ",
+                "Fourteen ",
+                "Fifteen ",
+                "Sixteen ",
+                "Seventeen ",
+                "Eighteen ",
+                "Nineteen ",
+            ];
+            const b = ["", "", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"];
+
+            const regex = /^(\d{2})(\d{2})(\d{2})(\d{1})(\d{2})$/;
+
+            const getLT20 = (n) => a[Number(n)];
+            const getGT20 = (n) => b[n[0]] + " " + a[n[1]];
+
+            function numWords(input) {
+                const num = parseInt(Number(input));
+                if (isNaN(num)) return "";
+                if (num === 0) return "zero";
+
+                const numStr = num.toString();
+                if (numStr.length > 9) {
+                    throw new Error("overflow"); // Does not support converting more than 9 digits yet
+                }
+
+                const a = ("000000000" + numStr).substr(-9).match(regex); // left pad zeros
+                const [, n1, n2, n3, n4, n5] = ("000000000" + numStr).substr(-9).match(regex); // left pad zeros
+
+                let str = "";
+                str += n1 != 0 ? (getLT20(n1) || getGT20(n1)) + "Crore " : "";
+                str += n2 != 0 ? (getLT20(n2) || getGT20(n2)) + "Lakh " : "";
+                str += n3 != 0 ? (getLT20(n3) || getGT20(n3)) + "Thousand " : "";
+                str += n4 != 0 ? getLT20(n4) + "Hundred " : "";
+                str += n5 != 0 && str != "" ? "and " : "";
+                str += n5 != 0 ? getLT20(n5) || getGT20(n5) : "";
+
+                return str.trim();
+            }
+
+            return numWords(number);
+        }
+
+        function getTax(item) {
+            if (item?.tax_v1) {
+                let totaltax = Object.values(item?.tax_v1).reduce((a, b) => a + b, 0);
+                return totaltax;
+            } else if (item.tax) {
+                return item.tax;
+            } else {
+                return 0;
+            }
+        }
+
+        function getUnit(item) {
+            if (item.unit) {
+                return item?.unit;
+            } else if (item.enable_alternate_unit) {
+                return item?.alternate_unit?.base_unit;
+            } else {
+                return null;
+            }
+        }
+
+        function getQuantity(item) {
+            const { quantity_v1, enable_alternate_unit, alternate_unit, unit } = item;
+            let qty = parseFloat(quantity_v1);
+
+            if (enable_alternate_unit === true) {
+                if (unit) {
+                    if (unit === alternate_unit?.base_unit) {
+                        qty = qty;
+                    } else if (unit === alternate_unit?.secondary_unit) {
+                        qty = qty * (1 / parseFloat(alternate_unit?.conversion));
+                    }
+                }
+                return parseFloat(qty);
+            } else {
+                return parseFloat(qty);
+            }
+        }
+
+        function getItemSalePrice(item) {
+            const { sale_price, sale_price_with_tax, wholesale_price, wholesale_quantity } = item;
+            let tax = getTax(item);
+            let qty = getQuantity(item);
+            let salePrice = parseFloat(sale_price);
+
+            if (wholesale_quantity && wholesale_price) {
+                if (qty >= wholesale_quantity) {
+                    salePrice = parseFloat(wholesale_price);
+                }
+            }
+            if (sale_price_with_tax !== false) {
+            } else {
+                let taxPrice = parseFloat((salePrice * tax) / 100);
+                salePrice = salePrice + taxPrice;
+            }
+
+            return parseFloat(salePrice.toFixed(2));
+        }
+
+        function getSalePrice(item) {
+            const { sale_price, quantity_v1, manual_discount = 0, sale_price_with_tax, wholesale_price, wholesale_quantity } = item;
+            let tax = getTax(item);
+            let qty = getQuantity(item);
+            let salePrice = parseFloat(sale_price);
+
+            if (wholesale_quantity && wholesale_price) {
+                if (qty >= wholesale_quantity) {
+                    salePrice = parseFloat(wholesale_price);
+                }
+            }
+            let itemTotal;
+            if (sale_price_with_tax !== false) {
+                itemTotal = salePrice * qty - manual_discount;
+            } else {
+                let taxPrice = parseFloat((salePrice * tax) / 100);
+                itemTotal = (salePrice + taxPrice) * qty - manual_discount;
+            }
+
+            return parseFloat(itemTotal.toFixed(2));
+        }
+
+        function appendStoreData(store) {
+            let storeName = document.getElementById("store-name");
+            storeName.innerText = store.store_name;
+            let storePhone = document.getElementById("store-phone");
+            storePhone.innerText = store.phone;
+        }
+
+        function appendInvoiceData(sale) {
+            let invoiceNo = document.getElementById("invoice-no");
+            invoiceNo.innerText = sale.bill_no ?? "-";
+
+            let invoiceDate = document.getElementById("invoice-date");
+            invoiceDate.innerText = formatTime(sale.date_created);
+        }
+
+        function appendCustomerData(sale) {
+            if (!sale.customer) return;
+
+            let billCustomerName = document.getElementById("bill-customer-name");
+            billCustomerName.innerText = sale.customer.name;
+            let shipCustomerName = document.getElementById("ship-customer-name");
+            shipCustomerName.innerText = sale.customer.name;
+
+            let billAddress = document.getElementById("bill-address");
+            let billAdd = sale.customer.billing_address;
+            if (billAdd) {
+                billAddress.innerText = billAdd.line_1 + ", " + billAdd.line_2 + ", " + billAdd.city + ", " + billAdd.state + ", " + billAdd.pin_code;
+            } else {
+                billAddress.innerText = "-";
+            }
+
+            let customer_gst = document.getElementById("customer-gst");
+            customer_gst.innerText = sale.customer.gst_number ?? "-";
+
+            let customerState = document.getElementById("customer-state");
+            customerState.innerText = sale.customer.billing_address.state ?? "-";
+
+            let customerPhone = document.getElementById("customer-phone");
+            customerPhone.innerText = sale.customer.phone ?? "-";
+
+            let shipAddress = document.getElementById("ship-address");
+            let shipAdd = sale.customer.shipping_address;
+            if (shipAdd) {
+                shipAddress.innerText = shipAdd.line_1 + ", " + shipAdd.line_2 + ", " + shipAdd.city + ", " + shipAdd.state + ", " + shipAdd.pin_code;
+            } else {
+                shipAddress.innerText = "-";
+            }
+        }
+
+        function appendBottomData(sale) {
+            let notes = document.getElementById("notes");
+            notes.innerText = sale.remarks ?? "-";
+
+            let terms = document.getElementById("terms");
+            terms.innerText = sale.terms ?? "-";
+
+            let amtWords = document.getElementById("amount-words");
+            amtWords.innerText = convertNumWords(sale.net_amount) + " Rupees Only";
+        }
+
+        function appendProductTableData(products, sale) {
+            if (!(Array.isArray(products) && products.length)) return;
+
+            let productTableBody = document.getElementById("product-table-body");
+            productTableBody.innerHTML = null;
+
+            products.forEach((item, idx) => {
+                let productRow = createProductRow(item, idx);
+                productTableBody.append(productRow);
+            });
+
+            new Array(0, 0, 0).forEach((item) => {
+                let blankRow = createBlankRow();
+                productTableBody.append(blankRow);
+            });
+
+            products.forEach((item, idx) => {
+                let tax = item.tax_v1;
+                if (Object.values(tax).length) {
+                    for (let key in tax) {
+                        let gstRow = createGstRow(key, tax[key], item);
+                        productTableBody.append(gstRow);
+                    }
+                }
+            });
+
+            let total = createTotalRow(sale);
+            productTableBody.append(total);
+
+            // let prev = createBalanceRow(sale, "PREVIOUS BALANCE");
+            // productTableBody.append(prev);
+            // let curr = createBalanceRow(sale, "CURRENT BALANCE");
+            // productTableBody.append(curr);
+        }
+
+        function createProductRow(product, idx) {
+            let trow = document.createElement("div");
+            trow.className = "trow";
+
+            let sn = document.createElement("div");
+            sn.innerText = idx + 1;
+            sn.className = "td border-right flex-1 center";
+
+            let name = document.createElement("div");
+            name.innerText = product.name ?? "-";
+            name.className = "td border-right flex-3 ellipsis";
+
+            let hsn = document.createElement("div");
+            hsn.innerText = product.hsn ?? "-";
+            hsn.className = "td border-right flex-2 center";
+
+            let batch = document.createElement("div");
+            batch.innerText = product.batch_number ?? "-";
+            batch.className = "td border-right flex-2 center";
+
+            let exp = document.createElement("div");
+            exp.innerText = product.expiry_date ? formatTime(product.expiry_date) : "-";
+            exp.className = "td border-right flex-2 center";
+
+            let mfg = document.createElement("div");
+            mfg.innerText = product.manufacture_date ? formatTime(product.manufacture_date) : "-";
+            mfg.className = "td border-right flex-2 center";
+
+            let qty = document.createElement("div");
+            qty.innerText = product.quantity_v1 + product.unit ?? "";
+            qty.className = "td border-right flex-1 center";
+
+            let rate = document.createElement("div");
+            rate.innerText = getItemSalePrice(product);
+            rate.className = "td border-right flex-1 right";
+
+            let total = document.createElement("div");
+            total.innerText = getSalePrice(product);
+            total.className = "td flex-2 right";
+
+            trow.append(sn, name, hsn, batch, exp, mfg, qty, rate, total);
+            return trow;
+        }
+
+        function createBlankRow() {
+            let trow = document.createElement("div");
+            trow.className = "trow";
+
+            let sn = document.createElement("div");
+            sn.innerText = "";
+            sn.className = "td border-right flex-1 center";
+
+            let name = document.createElement("div");
+            name.innerText = "";
+            name.className = "td border-right flex-3";
+
+            let hsn = document.createElement("div");
+            hsn.innerText = "";
+            hsn.className = "td border-right flex-2 center";
+
+            let batch = document.createElement("div");
+            batch.innerText = "";
+            batch.className = "td border-right flex-2 center";
+
+            let exp = document.createElement("div");
+            exp.innerText = "";
+            exp.className = "td border-right flex-2 center";
+
+            let mfg = document.createElement("div");
+            mfg.innerText = "";
+            mfg.className = "td border-right flex-2 center";
+
+            let qty = document.createElement("div");
+            qty.innerText = "";
+            qty.className = "td border-right flex-1 center";
+
+            let rate = document.createElement("div");
+            rate.innerText = "";
+            rate.className = "td border-right flex-1 right";
+
+            let total = document.createElement("div");
+            total.innerText = "";
+            total.className = "td flex-2 right";
+
+            trow.append(sn, name, hsn, batch, exp, mfg, qty, rate, total);
+            return trow;
+        }
+
+        function createGstRow(key, value, product) {
+            let trow = document.createElement("div");
+            trow.className = "trow";
+
+            let sn = document.createElement("div");
+            sn.innerText = "";
+            sn.className = "td border-right flex-1 center";
+
+            let name = document.createElement("div");
+            name.innerText = key.toUpperCase() + " @" + value + "%";
+            name.className = "td border-right flex-3 right bold";
+
+            let hsn = document.createElement("div");
+            hsn.innerText = "-";
+            hsn.className = "td border-right flex-2 center";
+
+            let batch = document.createElement("div");
+            batch.innerText = "-";
+            batch.className = "td border-right flex-2 center";
+
+            let exp = document.createElement("div");
+            exp.innerText = "-";
+            exp.className = "td border-right flex-2 center";
+
+            let mfg = document.createElement("div");
+            mfg.innerText = "-";
+            mfg.className = "td border-right flex-2 center";
+
+            let qty = document.createElement("div");
+            qty.innerText = "-";
+            qty.className = "td border-right flex-1 center";
+
+            let rate = document.createElement("div");
+            rate.innerText = "-";
+            rate.className = "td border-right flex-1 right";
+
+            let total = document.createElement("div");
+            total.innerText = "₹ " + (getItemSalePrice(product) * value) / 100;
+            total.className = "td flex-2 right";
+
+            trow.append(sn, name, hsn, batch, exp, mfg, qty, rate, total);
+            return trow;
+        }
+
+        function createTotalRow(sale) {
+            let trow = document.createElement("div");
+            trow.className = "trow grey-background border-top";
+
+            let sn = document.createElement("div");
+            sn.innerText = "";
+            sn.className = "td border-right flex-1 center";
+
+            let name = document.createElement("div");
+            name.innerText = "TOTAL";
+            name.className = "td border-right flex-3 right bold";
+
+            let hsn = document.createElement("div");
+            hsn.innerText = "";
+            hsn.className = "td border-right flex-2 center";
+
+            let batch = document.createElement("div");
+            batch.innerText = "";
+            batch.className = "td border-right flex-2 center";
+
+            let exp = document.createElement("div");
+            exp.innerText = "";
+            exp.className = "td border-right flex-2 center";
+
+            let mfg = document.createElement("div");
+            mfg.innerText = "";
+            mfg.className = "td border-right flex-2 center";
+
+            let qty = document.createElement("div");
+            qty.innerText = "";
+            qty.className = "td border-right flex-1 center";
+
+            let rate = document.createElement("div");
+            rate.innerText = "";
+            rate.className = "td border-right flex-1 right";
+
+            let total = document.createElement("div");
+            total.innerText = "₹ " + sale.net_amount;
+            total.className = "td flex-2 right";
+
+            trow.append(sn, name, hsn, batch, exp, mfg, qty, rate, total);
+            return trow;
+        }
+
+        function createBalanceRow(sale, key) {
+            let trow = document.createElement("div");
+            trow.className = "trow border-top";
+
+            let sn = document.createElement("div");
+            sn.innerText = "";
+            sn.className = "td border-right flex-1 center";
+
+            let name = document.createElement("div");
+            name.innerText = key;
+            name.className = "td border-right flex-3 right bold";
+
+            let hsn = document.createElement("div");
+            hsn.innerText = "";
+            hsn.className = "td border-right flex-2 center";
+
+            let batch = document.createElement("div");
+            batch.innerText = "";
+            batch.className = "td border-right flex-2 center";
+
+            let exp = document.createElement("div");
+            exp.innerText = "";
+            exp.className = "td border-right flex-2 center";
+
+            let mfg = document.createElement("div");
+            mfg.innerText = "";
+            mfg.className = "td border-right flex-2 center";
+
+            let qty = document.createElement("div");
+            qty.innerText = "";
+            qty.className = "td border-right flex-1 center";
+
+            let rate = document.createElement("div");
+            rate.innerText = "";
+            rate.className = "td border-right flex-1 right";
+
+            let total = document.createElement("div");
+            total.innerText = "₹ ---";
+            total.className = "td flex-2 right";
+
+            trow.append(sn, name, hsn, batch, exp, mfg, qty, rate, total);
+            return trow;
+        }
+
+        function appendGstTableData(products) {
+            if (!(Array.isArray(products) && products.length)) return;
+
+            let gstTableBody = document.getElementById("gst-table-body");
+            gstTableBody.innerHTML = null;
+
+            let no_hsns = [];
+            products.forEach((item) => {
+                if (item.hsn) {
+                    let gstRow = createGstDetailsRow(item);
+                    gstTableBody.append(gstRow);
+                } else {
+                    no_hsns.push(item);
+                }
+            });
+
+            if (no_hsns.length) {
+                let { cgst, sgst, cess, taxable_value } = no_hsns.reduce(
+                    (acc, item) => {
+                        let tax = item.tax_v1;
+                        if (tax) {
+                            let salePrice = getSalePrice(item);
+                            let item_cgst = tax.gst ? tax.gst / 2 : 0;
+                            let item_sgst = tax.gst ? tax.gst / 2 : 0;
+                            let item_cess = tax.cess ? tax.cess : 0;
+
+                            acc.cgst += item_cgst;
+                            acc.sgst += item_sgst;
+                            acc.cess += item_cess;
+                            acc.taxable_value += salePrice;
+
+                            return acc;
+                        }
+                    },
+                    {
+                        cgst: 0,
+                        sgst: 0,
+                        cess: 0,
+                        taxable_value: 0,
+                    }
+                );
+                let sum_product = {
+                    cgst,
+                    sgst,
+                    cess,
+                    taxable_value,
+                };
+
+                let no_hsns_row = createNonHsnGstDetailsRow(sum_product);
+                gstTableBody.append(no_hsns_row);
+            }
+
+            let totalGstRow = createTotalGstDetailsRow();
+            gstTableBody.append(totalGstRow);
+        }
+
+        function createGstDetailsRow(product) {
+            let trow = document.createElement("div");
+            trow.className = "trow border-bottom";
+
+            let ttx = 0;
+
+            let hsn_no = document.createElement("div");
+            hsn_no.innerText = product.hsn ?? "-";
+            hsn_no.className = "gst-td border-right";
+
+            let value = document.createElement("div");
+            value.innerText = getSalePrice(product);
+            value.className = "gst-td border-right txvalue";
+
+            let cgstValue = product.tax_v1?.gst;
+            let crv = "-";
+            let cav = "-";
+            if (cgstValue) {
+                crv = product.tax_v1?.gst / 2;
+                cav = (getItemSalePrice(product) * crv) / 100;
+                ttx += cav;
+            }
+
+            let cgst = document.createElement("div");
+            cgst.className = "gst-td td-flex border-right";
+
+            let cgstRate = document.createElement("div");
+            cgstRate.innerText = crv + "%";
+            cgstRate.className = "border-right";
+
+            let cgstAmt = document.createElement("div");
+            cgstAmt.innerText = cav;
+            cgstAmt.className = "cgst";
+
+            cgst.append(cgstRate, cgstAmt);
+
+            let sgstValue = product.tax_v1?.gst;
+            let srv = "-";
+            let sav = "-";
+            if (sgstValue) {
+                srv = product.tax_v1?.gst / 2;
+                sav = (getItemSalePrice(product) * srv) / 100;
+                ttx += sav;
+            }
+
+            let sgst = document.createElement("div");
+            sgst.className = "gst-td td-flex border-right";
+
+            let sgstRate = document.createElement("div");
+            sgstRate.innerText = srv + "%";
+            sgstRate.className = "border-right";
+
+            let sgstAmt = document.createElement("div");
+            sgstAmt.innerText = sav;
+            sgstAmt.className = "sgst";
+
+            sgst.append(sgstRate, sgstAmt);
+
+            let cessValue = product.tax_v1?.cess;
+            let csrv = "-";
+            let csav = "-";
+            if (cessValue) {
+                csrv = product.tax_v1?.cess;
+                csav = (getItemSalePrice(product) * csrv) / 100;
+                ttx += csav;
+            }
+
+            let cess = document.createElement("div");
+            cess.className = "gst-td td-flex border-right";
+
+            let cessRate = document.createElement("div");
+            cessRate.innerText = csrv + "%";
+            cessRate.className = "border-right";
+
+            let cessAmt = document.createElement("div");
+            cessAmt.innerText = csav;
+            cessAmt.className = "cess";
+
+            cess.append(cessRate, cessAmt);
+
+            let totalTax = document.createElement("div");
+            totalTax.innerText = "₹ " + ttx;
+            totalTax.className = "gst-td ttx";
+
+            trow.append(hsn_no, value, cgst, sgst, cess, totalTax);
+
+            return trow;
+        }
+
+        function createTotalGstDetailsRow() {
+            let trow = document.createElement("div");
+            trow.className = "trow";
+
+            let total_cgst = document.querySelectorAll(".cgst");
+            let totalCgst = 0;
+            total_cgst.forEach((el) => (totalCgst += Number(el.innerText)));
+
+            let total_sgst = document.querySelectorAll(".sgst");
+            let totalSgst = 0;
+            total_sgst.forEach((el) => (totalSgst += Number(el.innerText)));
+
+            let total_cess = document.querySelectorAll(".cess");
+            let totalCess = 0;
+            total_cess.forEach((el) => (totalCess += Number(el.innerText)));
+
+            let total_txvalue = document.querySelectorAll(".txvalue");
+            let totalTxValue = 0;
+            total_txvalue.forEach((el) => (totalTxValue += Number(el.innerText)));
+
+            let total_ttx = document.querySelectorAll(".ttx");
+            let totalTtx = 0;
+            total_ttx.forEach((el) => (totalTtx += Number(el.innerText.split("₹")[1].trim())));
+
+            let hsn_no = document.createElement("div");
+            hsn_no.innerText = "Total";
+            hsn_no.className = "gst-td border-right bold";
+
+            let value = document.createElement("div");
+            value.innerText = totalTxValue;
+            value.className = "gst-td border-right";
+
+            let cgst = document.createElement("div");
+            cgst.className = "gst-td td-flex border-right";
+
+            let cgstRate = document.createElement("div");
+            cgstRate.innerText = "";
+            cgstRate.className = "border-right";
+
+            let cgstAmt = document.createElement("div");
+            cgstAmt.innerText = totalCgst;
+            cgstAmt.className = "";
+
+            cgst.append(cgstRate, cgstAmt);
+
+            let sgst = document.createElement("div");
+            sgst.className = "gst-td td-flex border-right";
+
+            let sgstRate = document.createElement("div");
+            sgstRate.innerText = "";
+            sgstRate.className = "border-right";
+
+            let sgstAmt = document.createElement("div");
+            sgstAmt.innerText = totalSgst;
+            sgstAmt.className = "";
+
+            sgst.append(sgstRate, sgstAmt);
+
+            let cess = document.createElement("div");
+            cess.className = "gst-td td-flex border-right";
+
+            let cessRate = document.createElement("div");
+            cessRate.innerText = "";
+            cessRate.className = "border-right";
+
+            let cessAmt = document.createElement("div");
+            cessAmt.innerText = totalCess;
+            cessAmt.className = "";
+
+            cess.append(cessRate, cessAmt);
+
+            let totalTax = document.createElement("div");
+            totalTax.innerText = "₹ " + totalTtx.toFixed(1);
+            totalTax.className = "gst-td";
+
+            trow.append(hsn_no, value, cgst, sgst, cess, totalTax);
+
+            return trow;
+        }
+
+        function createNonHsnGstDetailsRow(product) {
+            let trow = document.createElement("div");
+            trow.className = "trow border-bottom";
+
+            let ttx = 0;
+
+            let hsn_no = document.createElement("div");
+            hsn_no.innerText = "-";
+            hsn_no.className = "gst-td border-right";
+
+            let value = document.createElement("div");
+            value.innerText = product.taxable_value;
+            value.className = "gst-td border-right txvalue";
+
+            let cgstValue = product.cgst;
+            let crv = "-";
+            let cav = "-";
+            if (cgstValue) {
+                crv = product.cgst;
+                cav = (product.taxable_value * crv) / 100;
+                ttx += cav;
+            }
+
+            let cgst = document.createElement("div");
+            cgst.className = "gst-td td-flex border-right";
+
+            let cgstRate = document.createElement("div");
+            cgstRate.innerText = crv + "%";
+            cgstRate.className = "border-right";
+
+            let cgstAmt = document.createElement("div");
+            cgstAmt.innerText = cav;
+            cgstAmt.className = "cgst";
+
+            cgst.append(cgstRate, cgstAmt);
+
+            let sgstValue = product.sgst;
+            let srv = "-";
+            let sav = "-";
+            if (sgstValue) {
+                srv = product.sgst;
+                sav = (product.taxable_value * srv) / 100;
+                ttx += sav;
+            }
+
+            let sgst = document.createElement("div");
+            sgst.className = "gst-td td-flex border-right";
+
+            let sgstRate = document.createElement("div");
+            sgstRate.innerText = srv + "%";
+            sgstRate.className = "border-right";
+
+            let sgstAmt = document.createElement("div");
+            sgstAmt.innerText = sav;
+            sgstAmt.className = "sgst";
+
+            sgst.append(sgstRate, sgstAmt);
+
+            let cessValue = product.cess;
+            let csrv = "-";
+            let csav = "-";
+            if (cessValue) {
+                csrv = product.cess;
+                csav = (product.taxable_value * csrv) / 100;
+                ttx += csav;
+            }
+
+            let cess = document.createElement("div");
+            cess.className = "gst-td td-flex border-right";
+
+            let cessRate = document.createElement("div");
+            cessRate.innerText = csrv + "%";
+            cessRate.className = "border-right";
+
+            let cessAmt = document.createElement("div");
+            cessAmt.innerText = csav;
+            cessAmt.className = "cess";
+
+            cess.append(cessRate, cessAmt);
+
+            let totalTax = document.createElement("div");
+            totalTax.innerText = "₹ " + ttx;
+            totalTax.className = "gst-td ttx";
+
+            trow.append(hsn_no, value, cgst, sgst, cess, totalTax);
+
+            return trow;
+        }
+    </script>
+
+</body></html>

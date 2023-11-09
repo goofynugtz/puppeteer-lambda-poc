@@ -1,6 +1,9 @@
 const puppeteer = require("puppeteer-core");
 const chromium = require("@sparticuz/chromium");
 
+const store = require("./store.json")
+const data = require("./sale.json")
+
 var execPath;
 
 async function getPath(){
@@ -8,7 +11,7 @@ async function getPath(){
   
   if (execPath) return execPath;
   execPath = await chromium.executablePath()
-  console.log("Path: ", execPath)
+  console.log("Path:", execPath)
   
   let endTime = performance.now();
   let executionTime = endTime - startTime;
@@ -29,8 +32,11 @@ async function func() {
       headless: chromium.headless,
       ignoreHTTPSErrors: true,
     });
-
-    await page.goto('file://home/goofynugtz/Work/HomeDrop/pupp-poc/templates/gst-invoice.html');
+    
+    const page = await browser.newPage();
+    await page.goto("file:///home/goofynugtz/Work/HomeDrop/pupp-poc/templates/gst-invoice.html");
+    await page.evaluate(new Function('store', 'data', 'loadData(store, data)'), store, data)
+    
     await page.screenshot({ path: 'screenshot.png' });
     return 'Screenshot captured';
 
@@ -39,9 +45,7 @@ async function func() {
     throw error;
 
   } finally {
-    if (browser !== null) {
-      await browser.close();
-    }
+    if (browser !== null) await browser.close();
   }
 };
 
