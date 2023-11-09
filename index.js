@@ -1,11 +1,13 @@
 const join = require("path").join;
 const puppeteer = require("puppeteer-core");
 const chromium = require("@sparticuz/chromium");
+const AWS = require('aws-sdk');
 
 const data = require("./sale.json")
 const store = require("./store.json")
 
 var execPath;
+const s3 = new AWS.S3();
 
 let browser = null;
 chromium.setHeadlessMode = true;
@@ -63,17 +65,23 @@ exports.handler = async (event, context) => {
     
     startTime = performance.now();
     // Phase 6
-    let path = join(__dirname, `invoice.pdf`)
-    await page.pdf({
-      path: path,
+    let buffer = await page.pdf({
       format: 'A4',
       margin: { top: "0.5in", bottom: "1.5in", left: "1in", right: "1in", },
     });
+    const params = {
+      Bucket: 'puppeteer-test-bucket-1',
+      Key: 'invoice.pdf',
+      Body: buffer,
+      ContentType: 'application/pdf',
+    };
+  
+    await s3.upload(params).promise();
     endTime = performance.now();
     executionTime = endTime - startTime;
-    console.log(`Phase 6 [PDF Save to File System]: ${executionTime} ms`)
+    console.log(`Phase 6 [Upload PDF to S3]: ${executionTime} ms`)
     
-    return 'PDF Created'
+    return 'PDF Uploaded'
 
   } catch (error) {
     console.error('Error:', error);
