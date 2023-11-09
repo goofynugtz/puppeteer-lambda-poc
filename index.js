@@ -68,7 +68,7 @@ exports.handler = async (event, context) => {
       path: path,
       format: 'A4',
       margin: { top: "0.5in", bottom: "1.5in", left: "1in", right: "1in", },
-  });
+    });
     endTime = performance.now();
     executionTime = endTime - startTime;
     console.log(`Phase 6 [PDF Save to File System]: ${executionTime} ms`)
