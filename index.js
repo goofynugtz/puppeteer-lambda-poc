@@ -64,7 +64,6 @@ exports.handler = async (event, context) => {
     startTime = performance.now();
     // Phase 6
     let path = join(__dirname, `invoice.pdf`)
-    await page.screenshot({ path: 'screenshot.png' })
     await page.pdf({
       path: path,
       format: 'A4',
